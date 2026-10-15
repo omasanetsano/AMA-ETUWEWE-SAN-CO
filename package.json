@@ -1,9 +1,21 @@
 {
-  "name":"westbridge-law-firm",
-  "version":"1.0.0",
-  "private":true,
-  "type":"module",
-  "scripts":{"dev":"vite --host 0.0.0.0 --port 5180","build":"vite build","preview":"vite preview --host 0.0.0.0 --port 5180"},
-  "dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","typescript":"latest","react":"latest","react-dom":"latest","lucide-react":"latest","framer-motion":"latest"},
-  "devDependencies":{}
+  "name": "ama-etuwewe-san-co",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5180",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5180"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.3",
+    "typescript": "^7.0.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "lucide-react": "^1.52.0",
+    "framer-motion": "^14.0.0"
+  },
+  "devDependencies": {}
 }
