@@ -194,13 +194,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .client-list>div:nth-child(odd){border-right:1px solid var(--line)}
 .client-list span{font-size:10px}
 .client-list h3{font:24px/1.2 var(--serif);margin:0}
-.partner-list{margin:0 var(--pad-x) var(--sec-y);display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.partner-list>div{padding:32px 28px 36px}
-.partner-list>div+div{border-left:1px solid var(--line)}
-.partner-list>div:first-child{padding-left:0}
-.partner-list span{font-size:10px;display:block;margin-bottom:28px}
-.partner-list h3{font:28px/1.15 var(--serif);margin:0 0 10px}
-.partner-list p{color:var(--muted-2);font-size:14px;margin:0}
+.partner-portraits{padding:0 var(--pad-x) var(--sec-y);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.partner-portraits article{min-width:0}
+.partner-portraits article>div{position:relative;overflow:hidden;background:#d8d4cc;aspect-ratio:4/5}
+.partner-portraits img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.72) contrast(1.02);transition:transform .7s cubic-bezier(.2,0,0,1),filter .4s}
+.partner-portraits article:hover img{transform:scale(1.018);filter:saturate(.88) contrast(1.02)}
+.partner-portraits span{position:absolute;right:12px;bottom:12px;display:grid;width:42px;height:42px;place-items:center;background:var(--paper);font-size:10px}
+.partner-portraits p{margin:20px 0 8px;color:var(--muted-2);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.partner-portraits h2{font:clamp(25px,2.6vw,38px)/1.05 var(--serif);margin:0;letter-spacing:-.025em}
 
 /* ---------- detail pages ---------- */
 .detail-copy{padding:var(--sec-y) max(var(--pad-x),calc((100vw - 1220px)/2));max-width:1200px}
@@ -316,10 +317,9 @@ a:active,button:active{transform:translateY(1px) scale(.985)}
   .practice-grid{grid-template-columns:1fr}
   .practice-grid>a,.practice-grid>a:nth-child(odd){border-right:0;padding-left:0;padding-right:0}
   .practice-grid svg{right:0}
-  .partner-list{grid-template-columns:1fr}
-  .partner-list>div,.partner-list>div:first-child{padding:24px 0;border-left:0}
-  .partner-list>div+div{border-left:0;border-top:1px solid var(--line);padding:24px 0}
-  .partner-list span{margin-bottom:14px}
+  .partner-portraits{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .partner-portraits article:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.15fr .85fr;column-gap:24px;align-items:end}
+  .partner-portraits article:first-child>div{grid-row:1/3;aspect-ratio:16/10}
 
   .office-cards{grid-template-columns:1fr;gap:28px;padding:32px 20px}
   .office-cards article{padding:0}
@@ -343,6 +343,9 @@ a:active,button:active{transform:translateY(1px) scale(.985)}
   .practice-list article>svg{display:none}
   .practice-list article:hover{padding-left:0}
   .cases>div,.attorney-grid,.case-grid,.blog-grid,.client-list{grid-template-columns:1fr}
+  .partner-portraits{grid-template-columns:1fr;gap:42px}
+  .partner-portraits article:first-child{grid-column:auto;display:block}
+  .partner-portraits article:first-child>div,.partner-portraits article>div{aspect-ratio:4/5}
   .cases article>div,.case-grid>a>div{aspect-ratio:4/3}
   .attorney-grid img,.attorney-grid>a:last-child img{aspect-ratio:4/3}
   .client-list>div:nth-child(odd){border-right:0}
