@@ -162,7 +162,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .page-cta>a{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid;width:250px;padding-bottom:12px;margin-top:40px;font-size:14px}
 
 /* ---------- listing grids ---------- */
-.practice-grid,.case-grid,.blog-grid,.attorney-grid{padding:0 var(--pad-x) var(--sec-y);display:grid}
+.practice-grid,.case-grid,.blog-grid{padding:0 var(--pad-x) var(--sec-y);display:grid}
 .practice-grid{grid-template-columns:repeat(2,1fr)}
 .practice-grid>a{padding:clamp(28px,3vw,40px);border-top:1px solid var(--line);position:relative}
 .practice-grid>a:nth-child(odd){border-right:1px solid var(--line);padding-left:0}
@@ -171,22 +171,28 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .practice-grid svg{width:36px;height:36px;position:absolute;right:clamp(24px,3vw,40px);top:32px}
 .practice-grid h2{font:clamp(30px,3vw,42px)/1.1 var(--serif);margin:clamp(40px,4.5vw,64px) 0 14px}
 .practice-grid p{color:var(--muted-2);line-height:1.7;max-width:560px;margin-bottom:0}
-.practice-grid b,.case-grid b,.attorney-grid b,.blog-grid b{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;margin-top:28px}
+.practice-grid b,.case-grid b,.departments b,.blog-grid b{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;margin-top:28px}
 
 .case-grid,.blog-grid{grid-template-columns:repeat(3,1fr);gap:clamp(40px,4vw,56px) 24px}
 .case-grid>a>div{aspect-ratio:5/6;position:relative;overflow:hidden}
 .blog-grid>a>img{aspect-ratio:4/3;object-fit:cover}
 .case-grid img,.blog-grid img{height:100%;object-fit:cover;transition:transform .7s}
-.case-grid>a:hover img,.blog-grid>a:hover img,.attorney-grid>a:hover img{transform:scale(1.025)}
-.blog-grid>a,.attorney-grid>a{overflow:hidden}
+.case-grid>a:hover img,.blog-grid>a:hover img{transform:scale(1.025)}
+.blog-grid>a{overflow:hidden}
 .case-grid>a>p,.blog-grid>a>p{font-size:10px;letter-spacing:.1em;margin:20px 0 12px;text-transform:uppercase}
 .case-grid h2,.blog-grid h2{font:28px/1.15 var(--serif);margin:0}
 
-.attorney-grid{grid-template-columns:repeat(3,1fr);gap:48px 24px}
-.attorney-grid img{aspect-ratio:4/5;object-fit:cover;filter:saturate(.65);transition:transform .7s}
-.attorney-grid span{display:block;font-size:10px;margin-top:20px}
-.attorney-grid h2{font:34px/1.1 var(--serif);margin:10px 0 8px}
-.attorney-grid p{color:var(--muted-2);line-height:1.6;margin:0}
+.departments{padding:0 var(--pad-x) var(--sec-y)}
+.departments>.label{margin-bottom:28px}
+.departments>div{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.departments a{display:flex;flex-direction:column;padding:32px 28px 36px;min-height:320px;transition:background-color .35s}
+.departments a+a{border-left:1px solid var(--line)}
+.departments a:first-child{padding-left:0}
+.departments a:hover{background:#ffffff70}
+.departments span{font-size:10px;display:block}
+.departments h2{font:clamp(28px,2.6vw,36px)/1.1 var(--serif);margin:44px 0 14px}
+.departments p{color:var(--muted-2);line-height:1.65;margin:0}
+.departments b{margin-top:auto;padding-top:28px}
 
 /* ---------- ruled lists: clients, partners ---------- */
 .client-list{margin:0 var(--pad-x) var(--sec-y);display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
@@ -309,10 +315,12 @@ a:active,button:active{transform:translateY(1px) scale(.985)}
   .values>div{grid-template-columns:1fr}
   .values article,.values article:nth-child(odd){border-right:0;padding-left:0;padding-right:0}
 
-  .cases>div,.attorney-grid{grid-template-columns:repeat(2,1fr)}
+  .cases>div{grid-template-columns:repeat(2,1fr)}
   .cases>div>article:last-child{grid-column:1/-1}
-  .attorney-grid>a:last-child{grid-column:1/-1}
-  .attorney-grid>a:last-child img{aspect-ratio:16/9}
+  .departments>div{grid-template-columns:1fr}
+  .departments a,.departments a:first-child{min-height:0;padding:28px 0}
+  .departments a+a{border-left:0;border-top:1px solid var(--line)}
+  .departments h2{margin-top:24px}
   .case-grid,.blog-grid{grid-template-columns:1fr 1fr}
   .practice-grid{grid-template-columns:1fr}
   .practice-grid>a,.practice-grid>a:nth-child(odd){border-right:0;padding-left:0;padding-right:0}
@@ -342,12 +350,11 @@ a:active,button:active{transform:translateY(1px) scale(.985)}
   .practice-list article{grid-template-columns:32px 1fr;gap:14px;padding:24px 0}
   .practice-list article>svg{display:none}
   .practice-list article:hover{padding-left:0}
-  .cases>div,.attorney-grid,.case-grid,.blog-grid,.client-list{grid-template-columns:1fr}
+  .cases>div,.case-grid,.blog-grid,.client-list{grid-template-columns:1fr}
   .partner-portraits{grid-template-columns:1fr;gap:42px}
   .partner-portraits article:first-child{grid-column:auto;display:block}
   .partner-portraits article:first-child>div,.partner-portraits article>div{aspect-ratio:4/5}
   .cases article>div,.case-grid>a>div{aspect-ratio:4/3}
-  .attorney-grid img,.attorney-grid>a:last-child img{aspect-ratio:4/3}
   .client-list>div:nth-child(odd){border-right:0}
   .client-list h3{font-size:21px}
   .practice-grid>a{padding-top:24px;padding-bottom:24px}
